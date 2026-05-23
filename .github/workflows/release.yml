@@ -30,10 +30,45 @@ jobs:
           # Create zip archive named after the tag/version
           zip -r "lampas-resource-pack-${{ github.ref_name }}.zip" $zip_files
 
-      - name: Create GitHub Release
+      - name: Calculate SHA-1 Hash
+        run: |
+          sha1_value=$(sha1sum "lampas-resource-pack-${{ github.ref_name }}.zip" | cut -d' ' -f1)
+          echo "SHA1=$sha1_value" >> $GITHUB_ENV
+          echo "Calculated SHA-1: $sha1_value"
+
+      - name: Create Versioned GitHub Release
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           gh release create "${{ github.ref_name }}" "lampas-resource-pack-${{ github.ref_name }}.zip" \
             --title "Release ${{ github.ref_name }}" \
-            --generate-notes
+            --notes "### Release ${{ github.ref_name }}
+            
+          **SHA-1 Hash:** \`$SHA1\`"
+
+      - name: Update 'latest' Tag
+        run: |
+          git tag -f latest
+          git push -f origin latest
+
+      - name: Create or Update 'latest' GitHub Release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          cp "lampas-resource-pack-${{ github.ref_name }}.zip" "lampas-resource-pack.zip"
+          if gh release view latest >/dev/null 2>&1; then
+            echo "Updating existing 'latest' release..."
+            gh release edit latest \
+              --title "Latest Release" \
+              --notes "This release points to the latest commit.
+              
+            **SHA-1 Hash:** \`$SHA1\`"
+            gh release upload latest "lampas-resource-pack.zip" --clobber
+          else
+            echo "Creating new 'latest' release..."
+            gh release create latest "lampas-resource-pack.zip" \
+              --title "Latest Release" \
+              --notes "This release points to the latest commit.
+              
+            **SHA-1 Hash:** \`$SHA1\`"
+          fi
