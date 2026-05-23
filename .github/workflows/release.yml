@@ -1,0 +1,39 @@
+name: Publish Resource Pack
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    name: Package and Publish
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v6
+
+      - name: Package Resource Pack
+        run: |
+          # Build a list of files/folders to include in the zip
+          zip_files="assets pack.mcmeta"
+          
+          # Include pack.png if it exists
+          if [ -f "pack.png" ]; then
+            zip_files="$zip_files pack.png"
+          fi
+          
+          # Create zip archive named after the tag/version
+          zip -r "lampas-resource-pack-${{ github.ref_name }}.zip" $zip_files
+
+      - name: Create GitHub Release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release create "${{ github.ref_name }}" "lampas-resource-pack-${{ github.ref_name }}.zip" \
+            --title "Release ${{ github.ref_name }}" \
+            --generate-notes
