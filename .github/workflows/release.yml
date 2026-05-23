@@ -2,8 +2,8 @@ name: Publish Resource Pack
 
 on:
   push:
-    tags:
-      - 'v*'
+    branches:
+      - main
 
 permissions:
   contents: write
@@ -12,6 +12,8 @@ jobs:
   publish:
     name: Package and Publish
     runs-on: ubuntu-latest
+    env:
+      VERSION: v0.0.${{ github.run_number }}
 
     steps:
       - name: Checkout Repository
@@ -27,22 +29,32 @@ jobs:
             zip_files="$zip_files pack.png"
           fi
           
-          # Create zip archive named after the tag/version
-          zip -r "lampas-resource-pack-${{ github.ref_name }}.zip" $zip_files
+          # Create zip archive named after the version
+          zip -r "lampas-resource-pack-$VERSION.zip" $zip_files
 
       - name: Calculate SHA-1 Hash
         run: |
-          sha1_value=$(sha1sum "lampas-resource-pack-${{ github.ref_name }}.zip" | cut -d' ' -f1)
+          sha1_value=$(sha1sum "lampas-resource-pack-$VERSION.zip" | cut -d' ' -f1)
           echo "SHA1=$sha1_value" >> $GITHUB_ENV
           echo "Calculated SHA-1: $sha1_value"
+
+      - name: Configure Git User
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+
+      - name: Create and Push Version Tag
+        run: |
+          git tag "$VERSION"
+          git push origin "$VERSION"
 
       - name: Create Versioned GitHub Release
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          gh release create "${{ github.ref_name }}" "lampas-resource-pack-${{ github.ref_name }}.zip" \
-            --title "Release ${{ github.ref_name }}" \
-            --notes "### Release ${{ github.ref_name }}
+          gh release create "$VERSION" "lampas-resource-pack-$VERSION.zip" \
+            --title "Release $VERSION" \
+            --notes "### Release $VERSION
             
           **SHA-1 Hash:** \`$SHA1\`"
 
@@ -55,7 +67,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          cp "lampas-resource-pack-${{ github.ref_name }}.zip" "lampas-resource-pack.zip"
+          cp "lampas-resource-pack-$VERSION.zip" "lampas-resource-pack.zip"
           if gh release view latest >/dev/null 2>&1; then
             echo "Updating existing 'latest' release..."
             gh release edit latest \
