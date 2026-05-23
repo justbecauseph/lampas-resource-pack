@@ -67,4 +67,11 @@ resource-pack=https://github.com/justbecauseph/lampas-resource-pack/releases/dow
 
 # Update this with the new SHA-1 hash found on the GitHub Releases page after a push
 resource-pack-sha1=<copy-sha1-hash-from-github-release-notes>
+
+# Custom prompt message shown to players when downloading the resource pack (must be valid JSON Text Component)
+resource-pack-prompt={"text":"The Lampas resource pack"}
+
+# Unique UUID to force client-side cache updates (must be a valid 128-bit UUID)
+resource-pack-id=bf814f2d-c205-40cd-8ee9-c49c2e268781
 ```
+

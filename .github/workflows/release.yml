@@ -56,7 +56,15 @@ jobs:
             --title "Release $VERSION" \
             --notes "### Release $VERSION
             
-          **SHA-1 Hash:** \`$SHA1\`"
+          **SHA-1 Hash:** \`$SHA1\`
+          
+          **Suggested server.properties:**
+          \`\`\`properties
+          resource-pack=https://github.com/justbecauseph/lampas-resource-pack/releases/download/latest/lampas-resource-pack.zip
+          resource-pack-sha1=$SHA1
+          resource-pack-prompt={\"text\":\"The Lampas resource pack\"}
+          resource-pack-id=bf814f2d-c205-40cd-8ee9-c49c2e268781
+          \`\`\`"
 
       - name: Update 'latest' Tag
         run: |
@@ -68,19 +76,29 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           cp "lampas-resource-pack-$VERSION.zip" "lampas-resource-pack.zip"
+          
+          release_notes="This release points to the latest commit.
+          
+          **SHA-1 Hash:** \`$SHA1\`
+          
+          **Suggested server.properties:**
+          \`\`\`properties
+          resource-pack=https://github.com/justbecauseph/lampas-resource-pack/releases/download/latest/lampas-resource-pack.zip
+          resource-pack-sha1=$SHA1
+          resource-pack-prompt={\"text\":\"The Lampas resource pack\"}
+          resource-pack-id=bf814f2d-c205-40cd-8ee9-c49c2e268781
+          \`\`\`"
+          
           if gh release view latest >/dev/null 2>&1; then
             echo "Updating existing 'latest' release..."
             gh release edit latest \
               --title "Latest Release" \
-              --notes "This release points to the latest commit.
-              
-            **SHA-1 Hash:** \`$SHA1\`"
+              --notes "$release_notes"
             gh release upload latest "lampas-resource-pack.zip" --clobber
           else
             echo "Creating new 'latest' release..."
             gh release create latest "lampas-resource-pack.zip" \
               --title "Latest Release" \
-              --notes "This release points to the latest commit.
-              
-            **SHA-1 Hash:** \`$SHA1\`"
+              --notes "$release_notes"
           fi
+
