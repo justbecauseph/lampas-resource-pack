@@ -1,0 +1,238 @@
+{
+  "providers": [
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/eldritch_capital_a.png",
+      "ascent": 12,
+      "height": 12,
+      "chars": [
+        "\uE000"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/eldritch_capital_b.png",
+      "ascent": 12,
+      "height": 12,
+      "chars": [
+        "\uE001"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/eldritch_capital_c.png",
+      "ascent": 12,
+      "height": 12,
+      "chars": [
+        "\uE002"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/eldritch_capital_d.png",
+      "ascent": 12,
+      "height": 12,
+      "chars": [
+        "\uE003"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/eldritch_capital_e.png",
+      "ascent": 12,
+      "height": 12,
+      "chars": [
+        "\uE004"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/eldritch_capital_f.png",
+      "ascent": 12,
+      "height": 12,
+      "chars": [
+        "\uE005"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/eldritch_capital_g.png",
+      "ascent": 12,
+      "height": 12,
+      "chars": [
+        "\uE006"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/eldritch_capital_h.png",
+      "ascent": 12,
+      "height": 12,
+      "chars": [
+        "\uE007"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/eldritch_capital_i.png",
+      "ascent": 12,
+      "height": 12,
+      "chars": [
+        "\uE008"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/eldritch_capital_j.png",
+      "ascent": 12,
+      "height": 12,
+      "chars": [
+        "\uE009"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/eldritch_capital_k.png",
+      "ascent": 12,
+      "height": 12,
+      "chars": [
+        "\uE00A"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/eldritch_capital_l.png",
+      "ascent": 12,
+      "height": 12,
+      "chars": [
+        "\uE00B"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/eldritch_capital_m.png",
+      "ascent": 12,
+      "height": 12,
+      "chars": [
+        "\uE00C"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/eldritch_capital_n.png",
+      "ascent": 12,
+      "height": 12,
+      "chars": [
+        "\uE00D"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/eldritch_capital_o.png",
+      "ascent": 12,
+      "height": 12,
+      "chars": [
+        "\uE00E"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/eldritch_capital_p.png",
+      "ascent": 12,
+      "height": 12,
+      "chars": [
+        "\uE00F"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/eldritch_capital_q.png",
+      "ascent": 12,
+      "height": 12,
+      "chars": [
+        "\uE010"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/eldritch_capital_r.png",
+      "ascent": 12,
+      "height": 12,
+      "chars": [
+        "\uE011"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/eldritch_capital_s.png",
+      "ascent": 12,
+      "height": 12,
+      "chars": [
+        "\uE012"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/eldritch_capital_t.png",
+      "ascent": 12,
+      "height": 12,
+      "chars": [
+        "\uE013"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/eldritch_capital_u.png",
+      "ascent": 12,
+      "height": 12,
+      "chars": [
+        "\uE014"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/eldritch_capital_v.png",
+      "ascent": 12,
+      "height": 12,
+      "chars": [
+        "\uE015"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/eldritch_capital_w.png",
+      "ascent": 12,
+      "height": 12,
+      "chars": [
+        "\uE016"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/eldritch_capital_x.png",
+      "ascent": 12,
+      "height": 12,
+      "chars": [
+        "\uE017"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/eldritch_capital_y.png",
+      "ascent": 12,
+      "height": 12,
+      "chars": [
+        "\uE018"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:font/eldritch_capital_z.png",
+      "ascent": 12,
+      "height": 12,
+      "chars": [
+        "\uE019"
+      ]
+    }
+  ]
+}
