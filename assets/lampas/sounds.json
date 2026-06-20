@@ -1,0 +1,42 @@
+{
+  "deep_sea_golem_voice_1": {
+    "sounds": [
+      "minecraft:lampas/thedeep1"
+    ],
+    "subtitle": "The Deep Sea Golem growls"
+  },
+  "deep_sea_golem_voice_2": {
+    "sounds": [
+      "minecraft:lampas/thedeep2"
+    ],
+    "subtitle": "The Deep Sea Golem growls"
+  },
+  "deep_sea_golem_voice_3": {
+    "sounds": [
+      "minecraft:lampas/thedeep3"
+    ],
+    "subtitle": "The Deep Sea Golem growls"
+  },
+  "deep_sea_golem_voice_4": {
+    "sounds": [
+      "minecraft:lampas/thedeep4"
+    ],
+    "subtitle": "The Deep Sea Golem growls"
+  },
+  "deep_sea_golem_voice_5": {
+    "sounds": [
+      "minecraft:lampas/thedeep5"
+    ],
+    "subtitle": "The Deep Sea Golem growls"
+  },
+  "deep_sea_golem_voice_random": {
+    "sounds": [
+      "minecraft:lampas/thedeep1",
+      "minecraft:lampas/thedeep2",
+      "minecraft:lampas/thedeep3",
+      "minecraft:lampas/thedeep4",
+      "minecraft:lampas/thedeep5"
+    ],
+        "subtitle": "The Deep Sea Golem growls outside?"
+  }
+}
